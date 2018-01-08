@@ -12,7 +12,7 @@ app.get(['/', 'index.html'], function(req, res){
 app.get('/downloadcv', function(req, res){
     var file = __dirname + '/public/downloads/JamesMurphyCV.pdf';
     res.download(file); // Set disposition and send it.
-  });
+});
 
 //.....so we dont need to create seperate paths for all the static files
 app.use(express.static('public'));
