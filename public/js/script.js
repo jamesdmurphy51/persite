@@ -11,7 +11,7 @@ $(window).on("load", function() {
 $(document).on("ready", function() {
 	
 	// Set body background
-	$("body").css({"background":$(".lx-wrapper").attr("data-background-color")+" url('"+$(".lx-wrapper").attr("data-background")+"') no-repeat center center fixed","background-size":"cover"});
+	$("body").css({"background":$(".lx-wrapper").attr("data-background-color")+" url('"+$(".lx-wrapper").attr("data-background")+"') no-repeat fixed","background-size":"cover"});
 	
 	// Resize home and content blocs
 	$(".lx-home").css("height",$(".lx-wrapper").height()+"px");
