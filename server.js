@@ -14,12 +14,12 @@ const xoauth2 = require('xoauth2');
 
 //HANDLE PAGE REQS
 //dum google page
-app.get(['google495c73f1f9c05beb.html'], function(req, res){
+app.get('/google495c73f1f9c05beb.html', function(req, res){
     res.sendFile(__dirname + '/google495c73f1f9c05beb.html')
 });
 
 //root page
-app.get(['/', 'index.html'], function(req, res){
+app.get(['/', '/index.html'], function(req, res){
     res.sendFile(__dirname + '/public/index-1.html')
 });
 
@@ -68,9 +68,11 @@ app.post('/contact', function(req, res){
 
 
 //activate server
+
 app.listen(80, '104.236.151.230', function(){
     console.log('App listening on port 80');
 });
+
 
 /*
 app.listen(8080, '127.0.0.1', function(){
