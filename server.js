@@ -13,6 +13,11 @@ const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 
 //HANDLE PAGE REQS
+//dum google page
+app.get(['google495c73f1f9c05beb.html'], function(req, res){
+    res.sendFile(__dirname + '/google495c73f1f9c05beb.html')
+});
+
 //root page
 app.get(['/', 'index.html'], function(req, res){
     res.sendFile(__dirname + '/public/index-1.html')
@@ -26,7 +31,6 @@ app.get('/downloadcv', function(req, res){
 
 
 //NODEMAILER/CONTACT FORM
-
 app.post('/contact', function(req, res){
     console.log(req.body); // parsed to JS object
     res.send(JSON.stringify(req.body)); //just bounce json right back
