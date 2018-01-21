@@ -64,12 +64,12 @@ app.post('/contact', function(req, res){
 
 
 //activate server
-/*
 app.listen(80, '104.236.151.230', function(){
     console.log('App listening on port 80');
 });
-*/
 
+/*
 app.listen(8080, '127.0.0.1', function(){
     console.log('App listening on port 8080');
 });
+*/
