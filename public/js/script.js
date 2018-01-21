@@ -86,7 +86,7 @@ $(document).on("ready", function() {
 	}
 	
 	return false;
-});
+});  //$(document).on("ready", function() {
 
 // Mini Slide Effect
 var lx_passed = "yes";
@@ -310,7 +310,8 @@ $(".lx-contact form input[type='button']").on("click", function() {
         txtarea.after("<span>This field must be filled</span>").css("border-right", "3px solid #a94442");
     }
 	
-	if($(".lx-contact form span").length === 0){
+	if($(".lx-contact form span").length === 0){ //wierd as cany find span!
+		/*
 		var url = "send-contact-form.php?fullname="+fullname.val()+"&email="+email.val()+"&message="+txtarea.val();
 		var posting = $.post( url );
 		posting.done(function( data ) {
@@ -318,10 +319,41 @@ $(".lx-contact form input[type='button']").on("click", function() {
 			$(".lx-contact form input[name='fullname']").val("");
 			$(".lx-contact form input[name='email']").val("");
 			$(".lx-contact form textarea").val("");
-		});	
+		});
+		*/	
+		//console.log(fullname.val(),email.val(),txtarea.val());
+		var payload = {
+			fullName: fullname.val(),
+			email: email.val(),
+			msg: txtarea.val()
+		};
+		
+		fetch("contact",
+		{
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			  },
+			method: "POST",
+			body: JSON.stringify(payload)
+		})
+		.then(function(res){ 
+			return res.json(); //turns json into object
+		})
+		.then(function(data){ 
+			//thank customer for email
+			function capitalizeFirstLetter(string) {
+				return string.charAt(0).toUpperCase() + string.slice(1);
+			}
+			var fName1= data.fullName.substr(0, data.fullName.indexOf(' '));
+			var fName2= capitalizeFirstLetter(fName1); 
+			var message = "Dear " + fName2 + ", thanks for your message,<br>Ill get back to you as soon as possible using <em>" + data.email + "</em>."
+			document.getElementById("persMsg").innerHTML=message;
+		})
 	}	
+
     return false;
-});
+}); //End contact Form Errors
 
 // Remove email error
 $(".lx-contact form input[name='email']").on("keyup", function() {
