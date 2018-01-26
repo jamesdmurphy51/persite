@@ -18,7 +18,9 @@ ul{
 body{
 	font-size:14px;
 	font-family:'Open Sans';
-	background-position:left !important;
+	background-size:cover;
+	background-position:0px 0px;
+	/*background-position:left !important;*/
 }
 
 input:focus,
