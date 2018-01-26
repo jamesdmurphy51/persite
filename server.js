@@ -66,7 +66,7 @@ app.post('/contact', function(req, res){
 
 //activate server
 
-app.listen(80, '192.241.220.140', function(){
+app.listen(80, '104.236.151.230', function(){
     console.log('App listening on port 80');
 });
 
