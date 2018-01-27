@@ -443,3 +443,8 @@ $("body").on("click", function(e) {
 		$(".lx-lang-items ul").fadeOut();
 	return false;
 });
+
+//refresh when user changes orientation
+$(window).on( "orientationchange", function( event ) {
+	window.location.href = window.location.href;
+});
