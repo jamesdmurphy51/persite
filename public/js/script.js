@@ -345,8 +345,16 @@ $(".lx-contact form input[type='button']").on("click", function() {
 			function capitalizeFirstLetter(string) {
 				return string.charAt(0).toUpperCase() + string.slice(1);
 			}
-			var fName1= data.fullName.substr(0, data.fullName.indexOf(' '));
-			var fName2= capitalizeFirstLetter(fName1); 
+			
+			var firstName;
+			var fullNameTrimmed = data.fullName.trim();
+			if(fullNameTrimmed.indexOf(" ") === -1){
+				//if user has only put one name
+				firstName = fullNameTrimmed;
+			}else{
+				firstName= fullNameTrimmed.substr(0, fullNameTrimmed.indexOf(' '));
+			}
+			var fName2= capitalizeFirstLetter(firstName); 
 			var message = "Dear " + fName2 + ", thanks for your message,<br>Ill get back to you as soon as possible using <em>" + data.email + "</em>."
 			document.getElementById("persMsg").innerHTML=message;
 		})
