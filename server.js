@@ -42,7 +42,7 @@ app.post('/contact', function(req, res){
         secure: false, //true for 465 only
         auth: {
             user: 'james@jamesdavidmurphy.com',
-            pass:  'Farouche51@'
+            pass:  ''
         }
        });
     
